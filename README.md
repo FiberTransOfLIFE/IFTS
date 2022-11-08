@@ -85,15 +85,15 @@ IFTS支持在信道中传输波分复用信号，如图1为三通道的信号功
 
 # 常见问题
 
-### 如何下载和使用IFTS
+## 如何下载和使用IFTS
 
 当前阶段我们未将IFTS上传至GitHub中，所以您目前暂时无法从GitHub中直接下载与使用IFTS。您可以访问我们的 **[IFTS发布网站](https://ifibertrans.sjtu.edu.cn/)** ，登录网站后下载与使用IFTS，并参阅相关文档。
 
-### GitHub平台的作用
+## GitHub平台的作用
 
 虽然当前您无法直接从GitHub上获取IFTS，但是GitHub为我们提供了一个平台进行交流。您可以将您在IFTS基础上修改的代码或新增的测试通过GitHub issue进行提交；或将您遇到的Bug通过GitHub进行描述与反馈。我们将非常感谢您对IFTS的贡献。当然，我们更乐意您能够通过IFTS发布网站的[社区](https://ifibertrans.sjtu.edu.cn/community.html)与我们进行沟通与交流。
 
-### 如何引用IFTS
+## 如何引用IFTS
 
 如果您使用我们的智能光传输仿真平台后认为IFTS对您的的研究工作有所帮助，并且将IFTS用于出版物、报告或demo演示等，我们将非常感谢您的引用。我们提供了两种引用格式如下所示：
 
@@ -119,7 +119,7 @@ IFTS支持在信道中传输波分复用信号，如图1为三通道的信号功
 
 ---
 
-### 使用许可
+## 使用许可
 
 IFTS使用GNU通用公共许可证（GNU General Public License）。用户选择下载并使用本项目，即视为用户同意并遵循该协议。详细请见[LICENSE](https://ifibertrans.sjtu.edu.cn/use.html)
 
@@ -132,14 +132,135 @@ IFTS使用GNU通用公共许可证（GNU General Public License）。用户选�
 
 <p align="right" > 上海交通大学区域光纤通信网与新型光通信系统国家重点实验室 </p>
 
-## Introduction
+
+
+-------
+# Introduction
 
 IFTS is an open source simulation tool for intelligent optical communication based on Python, which aims to meet the needs of scientists, optical communication engineers and researchers in related fields for optical communication simulation toolkits.Different from the traditional communication simulation tools, IFTS provides a simulation version based on Pytorch, and integrates a variety of neural network algorithms, which makes the simulation platform can accelerate the simulation with the help of GPU and neural network, naturally compatible with the intelligent algorithm design of optical communication.
 
-IFTS is published on **[the website of IFTS](ifibertrans.sjtu.edu.cn)** of the Laboratory of Intelligent Fiber Ecosystem(LIFE), Shanghai Jiao Tong University.We hope to provide an algorithm verification platform with the help of IFTS, reduce the threshold of intelligent optical communication research, and break through the information barriers. Experts in related fields are welcome to download, use and improve IFTS, and submit your optimization and modification to this git repository, so as to jointly promote the intelligent development of optical communication.
+# Characteristic
 
+* Python based development. It's easy to use, and can be expanded based on user's own needs.
+* Provide efficient simulation. GPU parallel computing and AI channel model is used to accelerate intelligent simulation platform.
+* Open source and free. As an open source communication toolkit, IFTS is committed to assisting the intelligent research of optical communication.
+* Use intelligence algorithms. Focus on the forefront of optical communication, and integrate AI framework.
+
+# Available Features
+
+IFTS provides transmission simulation for complete optical communication system, which can be divided into modules such as channel, transmitter, receiver, signal and tool box. It is a comprehensive and efficient optical communication simulation kit. The following is a brief description of the modules provided by IFTS. For details, please refer to the **[user manual](https://ifibertrans.sjtu.edu.cn/manual/)** on the IFTS publication website 。
+
+### Signal Module
+
+The signal module includes the operations related to the signal, such as the generation of signal sequence, signal modulation and demodulation, signal related performance calculation, etc., which realizes the simulation of the signal part of the simulation platform and provides the foundation for other modules.
+
+### Channel Module
+
+The channel module is used to build the simulation channel environment and support fiber channel and AWGN channel transmission. The fiber channel simulation can be further divided into the simulation channel device module and the simulation channel transmission module. The functions realized according to the signal processing process are wavelength division multiplexing, channel transmission, demultiplexing and coherent receiving. The simulation optical fiber transmission methods supported by the platform include the distributed split-step fourier method (SSFM) and AI channel model method.
+
+### Tx Module
+
+The Tx module realizes the simulation of the transmitter, which mainly involves the pulse shaping of the signal.
+
+### Rx Module
+
+The Rx module realizes the simulation of the receiver, which mainly includes a variety of DSP algorithms on the receiving end, such as carrier phase estimation, adaptive filtering, dispersion compensation, IQ balance and other algorithms.
+
+### ToolBox Module
+
+The toolbox module contains various functional functions that need to be used in the code, such as base conversion, resampling, filter design, sliding average, numerical calculation, etc., which provides basic help for simulation.
+
+# Results Presentation
+
+IFTS provides a simulation of the complete transmission process, and the results can be visualized by figure. Some of the results are shown below. For more information, please refer to the **[code running instructions](https://ifibertrans.sjtu.edu.cn/use.html)**  on the IFTS distribution website. 
+
+### WDM
+
+IFTS supports the transmission of WDM signals in the channel. Figure 1 shows the schematic diagram of signal power spectral density of three-channel.
+
+<div align=center><img src="https://github.com/FiberTransOfLIFE/IFTS/blob/main/img/WDM_PSD.png" width = "50%" height = "50%" ></div>
+
+<div align="center">
+
+Fig 1.Power spectral density diagram of WDM signal
+</div>
+
+### Fiber Channel
+
+In the current version of IFTS, in addition to using SSFM algorithm to realize the simulation of optical fiber channel during transmission, IFTS also provides NN channel simulation to model fiber optic channels using Generative Adversarial Networks (GAN). NN channel simulation can realize the acceleration of fiber channel simulation while ensuring the accuracy. In Figure 2 and Figure 3, the signal constellation of the receiver after dispersion compensation is obtained by using SSFM and AI channel model and transmission simulation under the condition of single channel, 80km and 10.0dBm power, respectively.
+
+<div align=center><img src="https://github.com/FiberTransOfLIFE/IFTS/blob/main/img/Constellation_After_LC_SSFM.png" width = "50%" height = "50%" ></div>
+
+<div align="center">
+
+Fig 2.Dispersion compensation constellation of SSFM model
+</div>
+
+<div align=center><img src="https://github.com/FiberTransOfLIFE/IFTS/blob/main/img/Constellation_After_LC_GAN.png" width = "50%" height = "50%" ></div>
+
+<div align="center">
+
+Fig 3.Dispersion compensation constellation of GAN model
+</div>
+
+
+### Signal Recovery
+
+The optical signal sent by the transmitter not only has amplitude attenuation after transmission through the fiber channel, but also has the signal distortion caused by the linear and nonlinear affection. The receiver of the simulation platform adopts a series of DSP algorithms, including low-pass filtering, IQ balance, dispersion compensation, adaptive filtering, synchronization, carrier phase estimation and other modules to correct compensation and complete the information recovery at the receiver. Figure 4 shows the constellation diagram of restored signal after receiver DSP.
+
+<div align=center><img src="https://github.com/FiberTransOfLIFE/IFTS/blob/main/img/Constellation_After_CPE.png" width = "50%" height = "50%" ></div>
+
+<div align="center">
+
+Fig 4.Constellation of recovered signal after receiver DSP
+</div>
+
+# FAQs
+
+## How to install and use IFTS
+
+At the current stage, we have not uploaded IFTS to GitHub, so you cannot directly install and use IFTS from GitHub. You can visit our **[IFTS publishing website](https://ifibertrans.sjtu.edu.cn/)**, log in to the website, install and use IFTS, and refer to relevant documents.
+
+## The role of GitHub
+
+Although you cannot directly obtain IFTS from GitHub, GitHub provides us with a platform for communication. You can submit your modified code or new test based on IFTS through GitHub issue; Or describe and feed back the bugs you encounter through GitHub. Of course, we would like you to communicate with us through the [community](https://ifibertrans.sjtu.edu.cn/community.html) of IFTS publishing website.
+
+## How to reference IFTS
+
+If you use our transmission simulation platform and think that IFTS is helpful to your research work, or you use IFTS for for a publication, presentation or a demo, we will appreciate your reference. We provide two reference formats as follows:
+
+#### MLA format
+
+---
+   Zekun Niu, Hang Yang, Lyu Li, Minghui Shi, Chuyan Zeng, Chenhao Dai, Guozhi Xu, Haochen Zhao,
+   and Lilin Yi. “Intelligent Fiber Transmission Simulation.” Intelligent Fiber Transmission 
+   Simulation Platform of Shanghai Jiao Tong University, LIFE, 2022, ifibertrans.sjtu.edu.cn/.
+   
+---
+
+#### BibTeX format
+
+---
+   @misc{IFTSv0.1,
+   author = {Zekun Niu and Hang Yang and  Lyu Li and Minghui Shi and  Chuyan Zeng and Chenhao 
+   Dai and Guozhi Xu and Haochen Zhao and Lilin Yi},<br>
+   title = {Intelligent Fiber Transmission Simulation},<br>
+   howpublished = {Available at \url{ifibertrans.sjtu.edu.cn}},<br>
+   year = 2022
+   }
+
+---
+
+## Use License
+
+IFTS uses the GNU General Public License. If the user chooses to install and use our project, it is deemed that the user agrees and follows this agreement. See [LICENSE](https://ifibertrans.sjtu.edu.cn/use.html) for details.
+
+<br>
+
+In a word, we hope to provide an algorithm verification platform with the help of IFTS, reduce the threshold of intelligent optical communication research, and break through the information barriers. Experts in related fields are welcome to download, use and improve IFTS, so as to jointly promote the intelligent development of optical communication.
 <br>
 
 <p align="right" > By  Intelligent optical communication team of LIFE   &emsp; &emsp; &emsp; &emsp; &emsp;     </p>
 
 <p align="right" > State Key Laboratory of Advanced Optical Communication Systems and Networks </p>
+
