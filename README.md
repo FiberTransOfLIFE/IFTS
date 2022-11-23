@@ -7,6 +7,9 @@
 
 IFTS是基于Python开发的智能光通信开源仿真工具，旨在满足科学家，光通信工程师及相关领域研究人员对于光通信仿真工具包的需求。与传统通信仿真工具不同的是，IFTS提供了基于Pytorch的仿真版本，并集成多种神经网络算法，这使得仿真平台可借助GPU和神经网络对仿真进行加速，天然兼容光通信的智能化算法设计。
 
+### 注：当前阶段您还无法从GitHub中直接获取IFTS源代码，当前GitHub仅为我们提供了一个平台进行交流。如果您想使用与下载IFTS，您可以访问我们的 **[IFTS发布网站](https://ifibertrans.sjtu.edu.cn/)** ，从网站中获取IFTS。 
+
+
 # 特点
 
 * 基于Python开发。易于上手，可根据自身需求扩展其功能。
@@ -138,6 +141,8 @@ IFTS使用GNU通用公共许可证（GNU General Public License）。用户选�
 # Introduction
 
 IFTS is an open source simulation tool for intelligent optical communication based on Python, which aims to meet the needs of scientists, optical communication engineers and researchers in related fields for optical communication simulation toolkits.Different from the traditional communication simulation tools, IFTS provides a simulation version based on Pytorch, and integrates a variety of neural network algorithms, which makes the simulation platform can accelerate the simulation with the help of GPU and neural network, naturally compatible with the intelligent algorithm design of optical communication.
+
+### Note: At present, you cannot directly obtain IFTS and its code from GitHub. Now, GitHub only provides us with a platform for communication. If you want to use and download IFTS, you can visit our **[IFTS publishing website](https://ifibertrans.sjtu.edu.cn/)**  to obtain IFTS.
 
 # Characteristic
 
